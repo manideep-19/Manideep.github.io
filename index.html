@@ -6,95 +6,131 @@
     <title>My GitHub Profile</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f9;
-            color: #333;
+            background: linear-gradient(135deg, #f06, #3023ae);
+            color: #fff;
         }
         header {
-            background-color: #24292e;
-            color: white;
-            padding: 20px 0;
+            background: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            padding: 30px 0;
             text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         header h1 {
             margin: 0;
-            font-size: 2.5em;
+            font-size: 3em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
         nav {
             margin: 20px 0;
+            text-align: center;
         }
         nav a {
             text-decoration: none;
-            color: #0366d6;
+            color: #fff;
             margin: 0 15px;
             font-size: 1.2em;
+            transition: color 0.3s ease;
         }
         nav a:hover {
-            text-decoration: underline;
+            color: #ffd700;
         }
         main {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
         }
         section {
-            margin-bottom: 40px;
+            margin-bottom: 50px;
         }
         section h2 {
-            font-size: 1.8em;
-            border-bottom: 2px solid #0366d6;
-            padding-bottom: 5px;
+            font-size: 2em;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
             margin-bottom: 20px;
+            position: relative;
+        }
+        section h2:before {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: #ffd700;
+            bottom: -5px;
+            left: 0;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        ul li {
+            margin: 10px 0;
+            font-size: 1.2em;
+        }
+        ul li a {
+            color: #ffd700;
+            text-decoration: none;
+        }
+        ul li a:hover {
+            text-decoration: underline;
         }
         footer {
             text-align: center;
             padding: 20px;
-            background-color: #24292e;
+            background: rgba(0, 0, 0, 0.8);
             color: white;
             position: fixed;
             bottom: 0;
             width: 100%;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
         }
         footer p {
             margin: 0;
-            font-size: 0.9em;
+            font-size: 1em;
         }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
         <h1>Welcome to My GitHub Profile</h1>
     </header>
 
+    <nav>
+        <a href="#about">About Me</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
     <main>
-        <section>
+        <section id="about">
             <h2>About Me</h2>
-            <p>Hello! I'm a passionate developer who loves coding, learning, and sharing knowledge. I specialize in Application Developement.</p>
+            <p>Hi there! I'm a passionate developer who loves coding, exploring new technologies, and building innovative projects. My expertise lies in [your skills or focus areas], and I'm constantly seeking opportunities to learn and grow.</p>
         </section>
 
-        <section>
+        <section id="projects">
             <h2>Projects</h2>
             <ul>
-                <li><strong>Project 1:</strong> <a href="https://github.com/your-repo">Description or Link</a></li>
-                <li><strong>Project 2:</strong> <a href="https://github.com/your-repo">Description or Link</a></li>
-                <li><strong>Project 3:</strong> <a href="https://github.com/your-repo">Description or Link</a></li>
+                <li><strong>Project 1:</strong> <a href="https://github.com/your-repo">Amazing project description or link</a></li>
+                <li><strong>Project 2:</strong> <a href="https://github.com/your-repo">Another cool project description or link</a></li>
+                <li><strong>Project 3:</strong> <a href="https://github.com/your-repo">Yet another awesome project description or link</a></li>
             </ul>
         </section>
 
-        <section>
+        <section id="contact">
             <h2>Contact Me</h2>
-            <p>Feel free to reach out via email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
-            <p>Or connect on <a href="https://www.linkedin.com/in/your-linkedin">LinkedIn</a>.</p>
+            <p>I'd love to hear from you! Feel free to reach out via email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+            <p>Connect with me on <a href="https://www.linkedin.com/in/your-linkedin">LinkedIn</a> or check out my work on <a href="https://github.com/your-profile">GitHub</a>.</p>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2024 Your Name. All rights reserved.</p>
+        <p>&copy; 2024 Your Name. Crafted with passion and creativity.</p>
     </footer>
 </body>
 </html>
