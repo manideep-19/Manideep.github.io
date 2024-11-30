@@ -3,134 +3,275 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My GitHub Profile</title>
+    <title>Tech Profile</title>
     <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(135deg, #f06, #3023ae);
-            color: #fff;
+        @keyframes glitch {
+            0% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+            100% { transform: translate(0); }
         }
-        header {
-            background: rgba(0, 0, 0, 0.8);
-            color: #fff;
-            padding: 30px 0;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        @keyframes terminal-cursor {
+            0% { opacity: 0; }
+            50% { opacity: 1; }
+            100% { opacity: 0; }
         }
-        header h1 {
-            margin: 0;
-            font-size: 3em;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        }
-        nav {
-            margin: 20px 0;
-            text-align: center;
-        }
-        nav a {
-            text-decoration: none;
-            color: #fff;
-            margin: 0 15px;
-            font-size: 1.2em;
-            transition: color 0.3s ease;
-        }
-        nav a:hover {
-            color: #ffd700;
-        }
-        main {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 30px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
-        }
-        section {
-            margin-bottom: 50px;
-        }
-        section h2 {
-            font-size: 2em;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-            margin-bottom: 20px;
-            position: relative;
-        }
-        section h2:before {
-            content: '';
-            position: absolute;
-            width: 50px;
-            height: 3px;
-            background: #ffd700;
-            bottom: -5px;
-            left: 0;
-        }
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        ul li {
-            margin: 10px 0;
-            font-size: 1.2em;
-        }
-        ul li a {
-            color: #ffd700;
-            text-decoration: none;
-        }
-        ul li a:hover {
-            text-decoration: underline;
-        }
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.8);
-            color: white;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
-        }
-        footer p {
-            margin: 0;
-            font-size: 1em;
+        @keyframes matrix-rain {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100vh); }
         }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
-<body>
-    <header>
-        <h1>Welcome to My GitHub Profile</h1>
-    </header>
+<body style="
+    margin: 0;
+    padding: 0;
+    font-family: 'Courier New', monospace;
+    background-color: #0a192f;
+    color: #64ffda;
+    min-height: 100vh;
+    overflow-x: hidden;
+">
+    <div id="matrix-background" style="
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        opacity: 0.1;
+    "></div>
 
-    <nav>
-        <a href="#about">About Me</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-    </nav>
+    <main style="
+        position: relative;
+        z-index: 2;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 2rem;
+    ">
+        <header style="
+            text-align: center;
+            margin-bottom: 3rem;
+            border: 1px solid #64ffda;
+            padding: 2rem;
+            background: rgba(10, 25, 47, 0.9);
+            box-shadow: 0 0 20px rgba(100, 255, 218, 0.2);
+        ">
+            <div id="terminal-text" style="
+                font-size: 1.2rem;
+                margin-bottom: 1rem;
+                color: #64ffda;
+            ">
+                > Initializing profile...
+            </div>
+            <h1 style="
+                font-size: 3rem;
+                margin: 1rem 0;
+                color: #64ffda;
+                text-shadow: 2px 2px 4px rgba(100, 255, 218, 0.3);
+            " onmouseover="this.style.animation='glitch 0.3s infinite'" onmouseout="this.style.animation='none'">
+                TECH DEVELOPER
+            </h1>
+            <div style="
+                font-size: 1.2rem;
+                color: #8892b0;
+            ">Full Stack Engineer | AI Enthusiast | Cybersecurity Expert</div>
+        </header>
 
-    <main>
-        <section id="about">
-            <h2>About Me</h2>
-            <p>Hi there! I'm a passionate developer who loves coding, exploring new technologies, and building innovative projects. My expertise lies in [your skills or focus areas], and I'm constantly seeking opportunities to learn and grow.</p>
+        <section style="
+            margin: 2rem 0;
+            padding: 2rem;
+            background: rgba(10, 25, 47, 0.9);
+            border: 1px solid #64ffda;
+            box-shadow: 0 0 20px rgba(100, 255, 218, 0.2);
+        ">
+            <h2 style="
+                color: #64ffda;
+                border-bottom: 2px solid #64ffda;
+                padding-bottom: 0.5rem;
+            ">System Specifications</h2>
+            <div id="specs" style="
+                font-family: 'Courier New', monospace;
+                color: #8892b0;
+            ">
+            </div>
         </section>
 
-        <section id="projects">
-            <h2>Projects</h2>
-            <ul>
-                <li><strong>Project 1:</strong> <a href="https://github.com/your-repo">Amazing project description or link</a></li>
-                <li><strong>Project 2:</strong> <a href="https://github.com/your-repo">Another cool project description or link</a></li>
-                <li><strong>Project 3:</strong> <a href="https://github.com/your-repo">Yet another awesome project description or link</a></li>
-            </ul>
+        <section style="
+            margin: 2rem 0;
+            padding: 2rem;
+            background: rgba(10, 25, 47, 0.9);
+            border: 1px solid #64ffda;
+            box-shadow: 0 0 20px rgba(100, 255, 218, 0.2);
+        ">
+            <h2 style="color: #64ffda; border-bottom: 2px solid #64ffda; padding-bottom: 0.5rem;">
+                Tech Stack
+            </h2>
+            <div id="tech-stack" style="
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 1rem;
+                margin-top: 1rem;
+            ">
+            </div>
         </section>
 
-        <section id="contact">
-            <h2>Contact Me</h2>
-            <p>I'd love to hear from you! Feel free to reach out via email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
-            <p>Connect with me on <a href="https://www.linkedin.com/in/your-linkedin">LinkedIn</a> or check out my work on <a href="https://github.com/your-profile">GitHub</a>.</p>
+        <section style="
+            margin: 2rem 0;
+            padding: 2rem;
+            background: rgba(10, 25, 47, 0.9);
+            border: 1px solid #64ffda;
+            box-shadow: 0 0 20px rgba(100, 255, 218, 0.2);
+        ">
+            <h2 style="color: #64ffda; border-bottom: 2px solid #64ffda; padding-bottom: 0.5rem;">
+                Network Connections
+            </h2>
+            <div style="
+                display: flex;
+                justify-content: center;
+                gap: 2rem;
+                margin-top: 1rem;
+            ">
+                <a href="#" class="social-link" style="
+                    color: #64ffda;
+                    text-decoration: none;
+                    padding: 0.5rem 1rem;
+                    border: 1px solid #64ffda;
+                    transition: all 0.3s ease;
+                " onmouseover="this.style.backgroundColor='rgba(100, 255, 218, 0.1)'"
+                   onmouseout="this.style.backgroundColor='transparent'">
+                    GitHub
+                </a>
+                <a href="#" class="social-link" style="
+                    color: #64ffda;
+                    text-decoration: none;
+                    padding: 0.5rem 1rem;
+                    border: 1px solid #64ffda;
+                    transition: all 0.3s ease;
+                " onmouseover="this.style.backgroundColor='rgba(100, 255, 218, 0.1)'"
+                   onmouseout="this.style.backgroundColor='transparent'">
+                    LinkedIn
+                </a>
+                <a href="#" class="social-link" style="
+                    color: #64ffda;
+                    text-decoration: none;
+                    padding: 0.5rem 1rem;
+                    border: 1px solid #64ffda;
+                    transition: all 0.3s ease;
+                " onmouseover="this.style.backgroundColor='rgba(100, 255, 218, 0.1)'"
+                   onmouseout="this.style.backgroundColor='transparent'">
+                    Discord
+                </a>
+            </div>
         </section>
     </main>
 
-    <footer>
-        <p>&copy; 2024 Your Name. Crafted with passion and creativity.</p>
-    </footer>
+    <script>
+        // Matrix background effect
+        function createMatrixBackground() {
+            const canvas = document.createElement('canvas');
+            canvas.style.position = 'fixed';
+            canvas.style.top = '0';
+            canvas.style.left = '0';
+            canvas.style.width = '100%';
+            canvas.style.height = '100%';
+            canvas.style.zIndex = '1';
+            document.getElementById('matrix-background').appendChild(canvas);
+
+            const ctx = canvas.getContext('2d');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            const characters = '01';
+            const fontSize = 10;
+            const columns = canvas.width / fontSize;
+            const drops = Array(Math.floor(columns)).fill(1);
+
+            function draw() {
+                ctx.fillStyle = 'rgba(10, 25, 47, 0.05)';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                ctx.fillStyle = '#64ffda';
+                ctx.font = fontSize + 'px monospace';
+
+                for (let i = 0; i < drops.length; i++) {
+                    const text = characters.charAt(Math.floor(Math.random() * characters.length));
+                    ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                    if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                        drops[i] = 0;
+                    }
+                    drops[i]++;
+                }
+            }
+
+            setInterval(draw, 33);
+        }
+
+        // Terminal typing effect
+        function typeWriter(element, text, speed = 50) {
+            let i = 0;
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML = text.substring(0, i + 1) + '<span style="opacity: 1; animation: terminal-cursor 1s infinite;">_</span>';
+                    i++;
+                    setTimeout(type, speed);
+                } else {
+                    element.innerHTML = text + '<span style="opacity: 1; animation: terminal-cursor 1s infinite;">_</span>';
+                }
+            }
+            type();
+        }
+
+        // Tech stack items
+        const techStack = [
+            'JavaScript', 'Python', 'React', 'Node.js', 'Docker', 'AWS',
+            'TypeScript', 'GraphQL', 'MongoDB', 'Kubernetes'
+        ];
+
+        // System specifications
+        const specs = [
+            'OS: Advanced Development Environment',
+            'CPU: High Performance Neural Processor',
+            'RAM: Unlimited Virtual Memory',
+            'Storage: Quantum Data Center',
+            'Network: Hyperspace Connection'
+        ];
+
+        // Initialize everything when the page loads
+        window.onload = function() {
+            createMatrixBackground();
+            
+            const terminalText = document.getElementById('terminal-text');
+            typeWriter(terminalText, '> Initializing profile...\n> Loading system specifications...\n> Ready');
+
+            const techStackContainer = document.getElementById('tech-stack');
+            techStack.forEach(tech => {
+                const techElement = document.createElement('div');
+                techElement.style.padding = '0.5rem';
+                techElement.style.border = '1px solid #64ffda';
+                techElement.style.textAlign = 'center';
+                techElement.style.transition = 'all 0.3s ease';
+                techElement.style.cursor = 'pointer';
+                techElement.innerHTML = tech;
+                techElement.onmouseover = () => {
+                    techElement.style.backgroundColor = 'rgba(100, 255, 218, 0.1)';
+                    techElement.style.transform = 'translateY(-2px)';
+                };
+                techElement.onmouseout = () => {
+                    techElement.style.backgroundColor = 'transparent';
+                    techElement.style.transform = 'translateY(0)';
+                };
+                techStackContainer.appendChild(techElement);
+            });
+
+            const specsContainer = document.getElementById('specs');
+            specs.forEach(spec => {
+                const specElement = document.createElement('div');
+                specElement.style.margin = '0.5rem 0';
+                specElement.innerHTML = `> ${spec}`;
+                specsContainer.appendChild(specElement);
+            });
+        };
+    </script>
 </body>
 </html>
