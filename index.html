@@ -3,275 +3,447 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tech Profile</title>
+    <title>Your Name - Software Developer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        @keyframes glitch {
-            0% { transform: translate(0); }
-            20% { transform: translate(-2px, 2px); }
-            40% { transform: translate(-2px, -2px); }
-            60% { transform: translate(2px, 2px); }
-            80% { transform: translate(2px, -2px); }
-            100% { transform: translate(0); }
+        :root {
+            --primary: #2ecc71;
+            --dark: #1a1a1a;
+            --light: #f5f6fa;
+            --accent: #3498db;
+            --section-padding: 80px 0;
         }
-        @keyframes terminal-cursor {
-            0% { opacity: 0; }
-            50% { opacity: 1; }
-            100% { opacity: 0; }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        @keyframes matrix-rain {
-            0% { transform: translateY(-100%); }
-            100% { transform: translateY(100vh); }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Hero Section */
+        header {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .matrix-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .content {
+            position: relative;
+            z-index: 2;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .typewriter {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            min-height: 2em;
+        }
+
+        /* Skills Section */
+        .skills-section {
+            padding: var(--section-padding);
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: var(--primary);
+        }
+
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .skill-category {
+            background: rgba(46, 204, 113, 0.05);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid var(--primary);
+        }
+
+        .skill-category h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tag {
+            background: rgba(46, 204, 113, 0.1);
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(46, 204, 113, 0.2);
+        }
+
+        /* Experience Section */
+        .experience-section {
+            padding: var(--section-padding);
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            margin-bottom: 30px;
+            position: relative;
+            border-left: 3px solid var(--primary);
+        }
+
+        .timeline-item h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .timeline-item .date {
+            color: var(--accent);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        /* Projects Section */
+        .projects-section {
+            padding: var(--section-padding);
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(46, 204, 113, 0.2);
+        }
+
+        .project-card h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .project-card .tech-stack {
+            margin-top: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tech-tag {
+            background: rgba(46, 204, 113, 0.1);
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: var(--section-padding);
+            text-align: center;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .contact-link {
+            color: var(--light);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 20px;
+            border-radius: 8px;
+            background: rgba(46, 204, 113, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .contact-link:hover {
+            background: rgba(46, 204, 113, 0.2);
+            transform: translateY(-3px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            .typewriter {
+                font-size: 1.2rem;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+            }
         }
     </style>
 </head>
-<body style="
-    margin: 0;
-    padding: 0;
-    font-family: 'Courier New', monospace;
-    background-color: #0a192f;
-    color: #64ffda;
-    min-height: 100vh;
-    overflow-x: hidden;
-">
-    <div id="matrix-background" style="
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 1;
-        opacity: 0.1;
-    "></div>
+<body>
+    <canvas id="matrix" class="matrix-bg"></canvas>
+    
+    <!-- Hero Section -->
+    <header>
+        <div class="content">
+            <h1>Manideep Chilukuri</h1>
+            <div class="typewriter" id="typewriter"></div>
+            <p class="intro">WELCOME TO MY PORTFOLIO
+            </p>
+        </div>
+    </header>
 
-    <main style="
-        position: relative;
-        z-index: 2;
-        max-width: 900px;
-        margin: 0 auto;
-        padding: 2rem;
-    ">
-        <header style="
-            text-align: center;
-            margin-bottom: 3rem;
-            border: 1px solid #64ffda;
-            padding: 2rem;
-            background: rgba(10, 25, 47, 0.9);
-            box-shadow: 0 0 20px rgba(100, 255, 218, 0.2);
-        ">
-            <div id="terminal-text" style="
-                font-size: 1.2rem;
-                margin-bottom: 1rem;
-                color: #64ffda;
-            ">
-                > Initializing profile...
+    <!-- Skills Section -->
+    <section class="skills-section" id="skills">
+        <div class="container">
+            <h2 class="section-title">Skills & Expertise</h2>
+            <div class="skills">
+                <div class="skill-category">
+                    <h3>Frontend Development</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">Html</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">CSS</span>
+                        <span class="skill-tag">Php</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Backend Development</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Firebase</span>
+                        <span class="skill-tag">MongoDB</span>
+                        <span class="skill-tag">PostgreSQL</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Android Application Developement</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">Xml</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">Firebase</span>
+                        <span class="skill-tag">SQL</span>
+                    </div>
+                </div>
             </div>
-            <h1 style="
-                font-size: 3rem;
-                margin: 1rem 0;
-                color: #64ffda;
-                text-shadow: 2px 2px 4px rgba(100, 255, 218, 0.3);
-            " onmouseover="this.style.animation='glitch 0.3s infinite'" onmouseout="this.style.animation='none'">
-                TECH DEVELOPER
-            </h1>
-            <div style="
-                font-size: 1.2rem;
-                color: #8892b0;
-            ">Full Stack Engineer | AI Enthusiast | Cybersecurity Expert</div>
-        </header>
+        </div>
+    </section>
 
-        <section style="
-            margin: 2rem 0;
-            padding: 2rem;
-            background: rgba(10, 25, 47, 0.9);
-            border: 1px solid #64ffda;
-            box-shadow: 0 0 20px rgba(100, 255, 218, 0.2);
-        ">
-            <h2 style="
-                color: #64ffda;
-                border-bottom: 2px solid #64ffda;
-                padding-bottom: 0.5rem;
-            ">System Specifications</h2>
-            <div id="specs" style="
-                font-family: 'Courier New', monospace;
-                color: #8892b0;
-            ">
+    <!-- Experience Section -->
+    <section class="experience-section" id="experience">
+        <div class="container">
+            <h2 class="section-title">Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>Intern</h3>
+                    <div class="date">June 2024-September 2024 </div>
+                    <p>Led development of E-Commerce website and an cromachatbot</p>
+                </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects-section" id="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <h3>E-Commerce Platform</h3>
+                    <p>A e-commerce website with all the basic functions like add to cart wishlist and recent products.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Html</span>
+                        <span class="tech-tag">css</span>
+                        <span class="tech-tag">JavaScript</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3>Women Saftey app</h3>
+                    <p>A women Saftey application which helps women to be safe during SOS time they can send locations to the pre added mobile numbers by them and call them .</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Android Studio</span>
+                        <span class="tech-tag">Xml</span>
+                        <span class="tech-tag">Java</span>
+                        <span class="tech-tag">Firebase</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3>Heart Rate moniteriong app </h3>
+                    <p>Measures the heart rate using camera of the mobile and the user can call the emergency contact if any changes in the heartbeat by one click.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Tensorflow</span>
+                        <span class="tech-tag">Xml</span>
+                        <span class="tech-tag">Java</span>
+                        <span class="tech-tag">Firebase</span>
+                    </div>
+                </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section style="
-            margin: 2rem 0;
-            padding: 2rem;
-            background: rgba(10, 25, 47, 0.9);
-            border: 1px solid #64ffda;
-            box-shadow: 0 0 20px rgba(100, 255, 218, 0.2);
-        ">
-            <h2 style="color: #64ffda; border-bottom: 2px solid #64ffda; padding-bottom: 0.5rem;">
-                Tech Stack
-            </h2>
-            <div id="tech-stack" style="
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-                gap: 1rem;
-                margin-top: 1rem;
-            ">
-            </div>
-        </section>
-
-        <section style="
-            margin: 2rem 0;
-            padding: 2rem;
-            background: rgba(10, 25, 47, 0.9);
-            border: 1px solid #64ffda;
-            box-shadow: 0 0 20px rgba(100, 255, 218, 0.2);
-        ">
-            <h2 style="color: #64ffda; border-bottom: 2px solid #64ffda; padding-bottom: 0.5rem;">
-                Network Connections
-            </h2>
-            <div style="
-                display: flex;
-                justify-content: center;
-                gap: 2rem;
-                margin-top: 1rem;
-            ">
-                <a href="#" class="social-link" style="
-                    color: #64ffda;
-                    text-decoration: none;
-                    padding: 0.5rem 1rem;
-                    border: 1px solid #64ffda;
-                    transition: all 0.3s ease;
-                " onmouseover="this.style.backgroundColor='rgba(100, 255, 218, 0.1)'"
-                   onmouseout="this.style.backgroundColor='transparent'">
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <p>I'm always interested in hearing about new projects and opportunities.</p>
+            <div class="contact-links">
+                <a href="https://github.com/manideep-19" class="contact-link" target="_blank">
+                    <i class="fab fa-github"></i>
                     GitHub
                 </a>
-                <a href="#" class="social-link" style="
-                    color: #64ffda;
-                    text-decoration: none;
-                    padding: 0.5rem 1rem;
-                    border: 1px solid #64ffda;
-                    transition: all 0.3s ease;
-                " onmouseover="this.style.backgroundColor='rgba(100, 255, 218, 0.1)'"
-                   onmouseout="this.style.backgroundColor='transparent'">
+                <a href="https://linkedin.com/in/manideep-chilukuri-1a7952256" class="contact-link" target="_blank">
+                    <i class="fab fa-linkedin"></i>
                     LinkedIn
                 </a>
-                <a href="#" class="social-link" style="
-                    color: #64ffda;
-                    text-decoration: none;
-                    padding: 0.5rem 1rem;
-                    border: 1px solid #64ffda;
-                    transition: all 0.3s ease;
-                " onmouseover="this.style.backgroundColor='rgba(100, 255, 218, 0.1)'"
-                   onmouseout="this.style.backgroundColor='transparent'">
-                    Discord
+                <a href="manideepchilukuri1@gmail.com" class="contact-link">
+                    <i class="fas fa-envelope"></i>
+                    Email
                 </a>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
     <script>
-        // Matrix background effect
-        function createMatrixBackground() {
-            const canvas = document.createElement('canvas');
-            canvas.style.position = 'fixed';
-            canvas.style.top = '0';
-            canvas.style.left = '0';
-            canvas.style.width = '100%';
-            canvas.style.height = '100%';
-            canvas.style.zIndex = '1';
-            document.getElementById('matrix-background').appendChild(canvas);
+        // Matrix Background Effect
+        const canvas = document.getElementById('matrix');
+        const ctx = canvas.getContext('2d');
 
-            const ctx = canvas.getContext('2d');
+        function resizeCanvas() {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
-
-            const characters = '01';
-            const fontSize = 10;
-            const columns = canvas.width / fontSize;
-            const drops = Array(Math.floor(columns)).fill(1);
-
-            function draw() {
-                ctx.fillStyle = 'rgba(10, 25, 47, 0.05)';
-                ctx.fillRect(0, 0, canvas.width, canvas.height);
-                ctx.fillStyle = '#64ffda';
-                ctx.font = fontSize + 'px monospace';
-
-                for (let i = 0; i < drops.length; i++) {
-                    const text = characters.charAt(Math.floor(Math.random() * characters.length));
-                    ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-                    if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-                        drops[i] = 0;
-                    }
-                    drops[i]++;
-                }
-            }
-
-            setInterval(draw, 33);
         }
 
-        // Terminal typing effect
-        function typeWriter(element, text, speed = 50) {
-            let i = 0;
-            function type() {
-                if (i < text.length) {
-                    element.innerHTML = text.substring(0, i + 1) + '<span style="opacity: 1; animation: terminal-cursor 1s infinite;">_</span>';
-                    i++;
-                    setTimeout(type, speed);
-                } else {
-                    element.innerHTML = text + '<span style="opacity: 1; animation: terminal-cursor 1s infinite;">_</span>';
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%';
+        const fontSize = 14;
+        const columns = canvas.width / fontSize;
+        const drops = Array(Math.floor(columns)).fill(1);
+
+        function drawMatrix() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = '#2ecc71';
+            ctx.font = fontSize + 'px monospace';
+
+            drops.forEach((drop, i) => {
+                const text = letters[Math.floor(Math.random() * letters.length)];
+                ctx.fillText(text, i * fontSize, drop * fontSize);
+
+                if (drop * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
                 }
-            }
-            type();
+                drops[i]++;
+            });
         }
 
-        // Tech stack items
-        const techStack = [
-            'JavaScript', 'Python', 'React', 'Node.js', 'Docker', 'AWS',
-            'TypeScript', 'GraphQL', 'MongoDB', 'Kubernetes'
+        setInterval(drawMatrix, 30);
+
+        // Typewriter Effect
+        const typewriterElement = document.getElementById('typewriter');
+        const phrases = [
+            'Android app developer',
+            'Problem Solver',
+            'Tech Enthusiast',
+            'Open Source Contributor'
         ];
 
-        // System specifications
-        const specs = [
-            'OS: Advanced Development Environment',
-            'CPU: High Performance Neural Processor',
-            'RAM: Unlimited Virtual Memory',
-            'Storage: Quantum Data Center',
-            'Network: Hyperspace Connection'
-        ];
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
 
-        // Initialize everything when the page loads
-        window.onload = function() {
-            createMatrixBackground();
+        function type() {
+            const currentPhrase = phrases[phraseIndex];
             
-            const terminalText = document.getElementById('terminal-text');
-            typeWriter(terminalText, '> Initializing profile...\n> Loading system specifications...\n> Ready');
+            if (isDeleting) {
+                typewriterElement.textContent = currentPhrase.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typewriterElement.textContent = currentPhrase.substring(0, charIndex + 1);
+                charIndex++;
+            }
 
-            const techStackContainer = document.getElementById('tech-stack');
-            techStack.forEach(tech => {
-                const techElement = document.createElement('div');
-                techElement.style.padding = '0.5rem';
-                techElement.style.border = '1px solid #64ffda';
-                techElement.style.textAlign = 'center';
-                techElement.style.transition = 'all 0.3s ease';
-                techElement.style.cursor = 'pointer';
-                techElement.innerHTML = tech;
-                techElement.onmouseover = () => {
-                    techElement.style.backgroundColor = 'rgba(100, 255, 218, 0.1)';
-                    techElement.style.transform = 'translateY(-2px)';
-                };
-                techElement.onmouseout = () => {
-                    techElement.style.backgroundColor = 'transparent';
-                    techElement.style.transform = 'translateY(0)';
-                };
-                techStackContainer.appendChild(techElement);
-            });
+            if (!isDeleting && charIndex === currentPhrase.length) {
+                setTimeout(() => isDeleting = true, 1500);
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+            }
 
-            const specsContainer = document.getElementById('specs');
-            specs.forEach(spec => {
-                const specElement = document.createElement('div');
-                specElement.style.margin = '0.5rem 0';
-                specElement.innerHTML = `> ${spec}`;
-                specsContainer.appendChild(specElement);
-            });
-        };
+            const typingSpeed = isDeleting ? 100 : 200;
+            setTimeout(type, typingSpeed);
+        }
+
+        type();
     </script>
 </body>
 </html>
