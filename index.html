@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
             --primary: #2ecc71;
@@ -173,16 +173,25 @@
             border-radius: 10px;
             padding: 25px;
             transition: all 0.3s ease;
+            border: 1px solid rgba(46, 204, 113, 0.1);
         }
 
         .project-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 10px 20px rgba(46, 204, 113, 0.2);
+            border-color: var(--primary);
         }
 
         .project-card h3 {
             color: var(--primary);
             margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .project-card p {
+            margin-bottom: 15px;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.5;
         }
 
         .project-card .tech-stack {
@@ -197,6 +206,7 @@
             padding: 3px 10px;
             border-radius: 12px;
             font-size: 0.8rem;
+            border: 1px solid rgba(46, 204, 113, 0.3);
         }
 
         /* Contact Section */
@@ -244,12 +254,15 @@
                 flex-direction: column;
                 align-items: center;
             }
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
     <canvas id="matrix" class="matrix-bg"></canvas>
-
+    
     <!-- Hero Section -->
     <header>
         <div class="content">
@@ -265,30 +278,47 @@
             <h2 class="section-title">Skills & Expertise</h2>
             <div class="skills">
                 <div class="skill-category">
-                    <h3>Programming Languages</h3>
-                    <div class="skill-list">
-                        <span class="skill-tag">JavaScript</span>
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">C++</span>
-                        <span class="skill-tag">Java</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3>Web Development</h3>
+                    <h3>Frontend Development</h3>
                     <div class="skill-list">
                         <span class="skill-tag">React</span>
-                        <span class="skill-tag">Node.js</span>
-                        <span class="skill-tag">HTML5</span>
-                        <span class="skill-tag">CSS3</span>
+                        <span class="skill-tag">TypeScript</span>
+                        <span class="skill-tag">HTML</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">CSS</span>
+                        <span class="skill-tag">Tailwind CSS</span>
+                        <span class="skill-tag">Vite</span>
+                        <span class="skill-tag">PHP</span>
                     </div>
                 </div>
                 <div class="skill-category">
-                    <h3>Tools & Platforms</h3>
+                    <h3>Backend Development</h3>
                     <div class="skill-list">
-                        <span class="skill-tag">Git</span>
-                        <span class="skill-tag">Docker</span>
-                        <span class="skill-tag">AWS</span>
-                        <span class="skill-tag">Linux</span>
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Firebase</span>
+                        <span class="skill-tag">MongoDB</span>
+                        <span class="skill-tag">PostgreSQL</span>
+                        <span class="skill-tag">Express.js</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Android Development</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">XML</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">Firebase</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">Android Studio</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Machine Learning & IoT</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">TensorFlow</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">ESP-32</span>
+                        <span class="skill-tag">Raspberry Pi</span>
+                        <span class="skill-tag">C/C++</span>
                     </div>
                 </div>
             </div>
@@ -301,14 +331,9 @@
             <h2 class="section-title">Experience</h2>
             <div class="timeline">
                 <div class="timeline-item">
-                    <h3>Software Engineer</h3>
-                    <div class="date">Jan 2022 - Present</div>
-                    <p>Working on full-stack web applications using React and Node.js, improving user experience and backend efficiency.</p>
-                </div>
-                <div class="timeline-item">
-                    <h3>Intern Developer</h3>
-                    <div class="date">Jun 2021 - Dec 2021</div>
-                    <p>Assisted in developing internal tools and performed testing and debugging of web applications.</p>
+                    <h3>Software Development Intern</h3>
+                    <div class="date">June 2024 - September 2024</div>
+                    <p>Led development of E-Commerce website and an AI chatbot. Gained hands-on experience in full-stack development and worked with modern web technologies to deliver production-ready applications.</p>
                 </div>
             </div>
         </div>
@@ -317,24 +342,125 @@
     <!-- Projects Section -->
     <section class="projects-section" id="projects">
         <div class="container">
-            <h2 class="section-title">Projects</h2>
+            <h2 class="section-title">Featured Projects</h2>
             <div class="project-grid">
                 <div class="project-card">
-                    <h3>Portfolio Website</h3>
-                    <p>A responsive personal portfolio website built with HTML, CSS, and JavaScript.</p>
+                    <h3>Task Manager Pro</h3>
+                    <p>A modern, responsive task management application with real-time updates, drag-and-drop functionality, and task categorization. Features include priority levels, due dates, progress tracking, and a clean, intuitive interface.</p>
                     <div class="tech-stack">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">TypeScript</span>
+                        <span class="tech-tag">Tailwind CSS</span>
+                        <span class="tech-tag">Vite</span>
+                        <span class="tech-tag">Supabase(SQL)</span>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <h3>E-Commerce Platform</h3>
+                    <p>A full-featured e-commerce website with shopping cart, wishlist, product search, user authentication, and payment integration. Includes admin panel for inventory management and order tracking.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">TypeScript</span>
                         <span class="tech-tag">HTML</span>
                         <span class="tech-tag">CSS</span>
                         <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Node.js</span>
                     </div>
                 </div>
+
                 <div class="project-card">
-                    <h3>Task Manager App</h3>
-                    <p>A React app to manage daily tasks with cloud sync and notifications.</p>
+                    <h3>Chatbot</h3>
+                    <p>A sleek and responsive web-based AI chatbot built using Flask (Python) on the backend and a modern HTML/CSS/JS frontend. The chatbot integrates with Google's Gemini 2.0 Flash model to deliver intelligent real-time conversations through a seamless API.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Flask </span>
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">CSS</span>
+                        <span class="tech-tag">Google Gemini API</span>
+                        <span class="tech-tag">Local Database</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>Women Safety App</h3>
+                    <p>A comprehensive safety application for women featuring SOS alerts, real-time location sharing, emergency contacts, and one-click calling. Includes offline functionality and GPS tracking.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Android Studio</span>
+                        <span class="tech-tag">XML</span>
+                        <span class="tech-tag">Java</span>
+                        <span class="tech-tag">Firebase</span>
+                        <span class="tech-tag">GPS</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>Portfolio Website</h3>
+                    <p>A modern, interactive portfolio website featuring smooth animations, responsive design, and dynamic content. Includes project showcase, skill visualization, and contact integration.</p>
                     <div class="tech-stack">
                         <span class="tech-tag">React</span>
+                        <span class="tech-tag">TypeScript</span>
+                        <span class="tech-tag">Tailwind CSS</span>
+                        <span class="tech-tag">Framer Motion</span>
+                        <span class="tech-tag">Vite</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>Heart Rate Monitoring App</h3>
+                    <p>Innovative health monitoring application that measures heart rate using camera sensors with AI-powered detection. Features emergency contact integration and health data analytics.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">TensorFlow</span>
+                        <span class="tech-tag">XML</span>
+                        <span class="tech-tag">Java</span>
                         <span class="tech-tag">Firebase</span>
-                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">Computer Vision</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>Bus Booking </h3>
+                    <p>Developed a responsive online bus booking system using React, TypeScript, and Tailwind CSS within a Vite environment. Implemented features including schedule search, seat selection, and booking management with a clean UI, ensuring fast load times and seamless user experience across devices.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">TypeScript</span>
+                        <span class="tech-tag">Supabase</span>
+                        <span class="tech-tag">Tailwind CSS</span>
+                        <span class="tech-tag">Vite</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>Online Payment Fraud Detection</h3>
+                    <p>Machine learning system that analyzes transaction patterns to detect fraudulent activities. Uses advanced algorithms to provide real-time fraud scoring and prevention.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">TensorFlow</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Scikit-learn</span>
+                        <span class="tech-tag">Pandas</span>
+                        <span class="tech-tag">Machine Learning</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>Surveillance Bot</h3>
+                    <p>Android-controlled security robot with live video streaming, motion detection, and remote navigation. Built for security monitoring with ESP-32 and Raspberry Pi integration.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">ESP-32</span>
+                        <span class="tech-tag">Raspberry Pi</span>
+                        <span class="tech-tag">OpenCV</span>
+                        <span class="tech-tag">Android</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>Agriculture Bot</h3>
+                    <p>Automated farming assistant with soil moisture sensing, automatic seed sowing, and intelligent watering system. Helps optimize crop growth through IoT-based agriculture solutions.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">C/C++</span>
+                        <span class="tech-tag">Arduino</span>
+                        <span class="tech-tag">IoT Sensors</span>
+                        <span class="tech-tag">Microcontrollers</span>
                     </div>
                 </div>
             </div>
@@ -344,19 +470,27 @@
     <!-- Contact Section -->
     <section class="contact-section" id="contact">
         <div class="container">
-            <h2 class="section-title">Contact Me</h2>
+            <h2 class="section-title">Get In Touch</h2>
+            <p>I'm always interested in hearing about new projects and opportunities.</p>
             <div class="contact-links">
-                <a href="mailto:manideep@example.com" class="contact-link"><i class="fas fa-envelope"></i>Email</a>
-                <a href="https://github.com/manideep" target="_blank" class="contact-link"><i class="fab fa-github"></i>GitHub</a>
-                <a href="https://linkedin.com/in/manideep" target="_blank" class="contact-link"><i class="fab fa-linkedin"></i>LinkedIn</a>
+                <a href="https://github.com/manideep-19" class="contact-link" target="_blank">
+                    <i class="fab fa-github"></i>
+                    GitHub
+                </a>
+                <a href="https://linkedin.com/in/manideep-chilukuri-1a7952256" class="contact-link" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                    LinkedIn
+                </a>
+                <a href="mailto:manideepchilukuri1@gmail.com" class="contact-link">
+                    <i class="fas fa-envelope"></i>
+                    Email
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Scripts -->
-
     <script>
-        // Matrix background animation
+        // Matrix Background Effect
         const canvas = document.getElementById('matrix');
         const ctx = canvas.getContext('2d');
 
@@ -364,65 +498,69 @@
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
         }
-        resizeCanvas();
 
+        resizeCanvas();
         window.addEventListener('resize', resizeCanvas);
 
-        const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()*&^%';
-        const lettersArray = letters.split('');
-        const fontSize = 16;
-        let columns = Math.floor(canvas.width / fontSize);
-        let drops = Array(columns).fill(1);
+        const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%';
+        const fontSize = 14;
+        const columns = canvas.width / fontSize;
+        const drops = Array(Math.floor(columns)).fill(1);
 
-        function draw() {
-            ctx.fillStyle = 'rgba(26, 26, 26, 0.1)';
+        function drawMatrix() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-            ctx.fillStyle = '#2ecc71'; // green text
+            ctx.fillStyle = '#2ecc71';
             ctx.font = fontSize + 'px monospace';
 
-            for (let i = 0; i < drops.length; i++) {
-                const text = lettersArray[Math.floor(Math.random() * lettersArray.length)];
-                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+            drops.forEach((drop, i) => {
+                const text = letters[Math.floor(Math.random() * letters.length)];
+                ctx.fillText(text, i * fontSize, drop * fontSize);
 
-                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                if (drop * fontSize > canvas.height && Math.random() > 0.975) {
                     drops[i] = 0;
                 }
                 drops[i]++;
-            }
+            });
         }
 
-        setInterval(draw, 50);
+        setInterval(drawMatrix, 30);
 
-        // Typewriter effect
+        // Typewriter Effect
         const typewriterElement = document.getElementById('typewriter');
-        const words = ['Web Developer', 'UI/UX Designer', 'Open Source Enthusiast', 'Tech Blogger'];
-        let wordIndex = 0;
+        const phrases = [
+            'Full Stack Developer',
+            'Android App Developer',
+            'Problem Solver',
+            'Tech Enthusiast',
+            'Open Source Contributor'
+        ];
+
+        let phraseIndex = 0;
         let charIndex = 0;
         let isDeleting = false;
-        let delay = 200;
 
         function type() {
-            const currentWord = words[wordIndex];
+            const currentPhrase = phrases[phraseIndex];
+            
             if (isDeleting) {
+                typewriterElement.textContent = currentPhrase.substring(0, charIndex - 1);
                 charIndex--;
-                typewriterElement.textContent = currentWord.substring(0, charIndex);
-                delay = 100;
-                if (charIndex === 0) {
-                    isDeleting = false;
-                    wordIndex = (wordIndex + 1) % words.length;
-                    delay = 500;
-                }
             } else {
+                typewriterElement.textContent = currentPhrase.substring(0, charIndex + 1);
                 charIndex++;
-                typewriterElement.textContent = currentWord.substring(0, charIndex);
-                delay = 200;
-                if (charIndex === currentWord.length) {
-                    isDeleting = true;
-                    delay = 1500;
-                }
             }
-            setTimeout(type, delay);
+
+            if (!isDeleting && charIndex === currentPhrase.length) {
+                setTimeout(() => isDeleting = true, 1500);
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+            }
+
+            const typingSpeed = isDeleting ? 100 : 200;
+            setTimeout(type, typingSpeed);
         }
 
         type();
