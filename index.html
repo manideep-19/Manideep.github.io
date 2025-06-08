@@ -1,472 +1,357 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        :root {
-            --primary: #2ecc71;
-            --dark: #1a1a1a;
-            --light: #f5f6fa;
-            --accent: #3498db;
-            --section-padding: 80px 0;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+  <style>
+    :root {
+      --primary: #2ecc71;
+      --dark: #1a1a1a;
+      --light: #f5f6fa;
+      --accent: #3498db;
+      --section-padding: 80px 0;
+    }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
 
-        html {
-            scroll-behavior: smooth;
-        }
+    html {
+      scroll-behavior: smooth;
+    }
 
-        body {
-            background-color: var(--dark);
-            color: var(--light);
-            line-height: 1.6;
-        }
+    body {
+      background-color: var(--dark);
+      color: var(--light);
+      line-height: 1.6;
+    }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
 
-        /* Header & Hero Section */
-        header {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
+    /* Navbar */
+    .navbar {
+      background-color: rgba(26, 26, 26, 0.95);
+      position: fixed;
+      width: 100%;
+      z-index: 1000;
+      padding: 15px 0;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    }
 
-        .matrix-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-        }
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-        .content {
-            position: relative;
-            z-index: 2;
-        }
+    .logo {
+      color: var(--primary);
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
 
-        h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            color: var(--primary);
-        }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+    }
 
-        .typewriter {
-            font-size: 1.5rem;
-            margin-bottom: 30px;
-            min-height: 2em;
-        }
+    .nav-links li a {
+      color: var(--light);
+      text-decoration: none;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
 
-        /* Skills Section */
-        .skills-section {
-            padding: var(--section-padding);
-            background: rgba(255, 255, 255, 0.02);
-        }
+    .nav-links li a:hover {
+      color: var(--primary);
+    }
 
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 40px;
-            color: var(--primary);
-        }
+    .menu-toggle {
+      display: none;
+      font-size: 1.5rem;
+      color: var(--light);
+      cursor: pointer;
+    }
 
-        .skills {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin: 30px 0;
-        }
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        background: var(--dark);
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      }
 
-        .skill-category {
-            background: rgba(46, 204, 113, 0.05);
-            padding: 20px;
-            border-radius: 10px;
-            border: 1px solid var(--primary);
-        }
+      .nav-links.active {
+        display: flex;
+      }
 
-        .skill-category h3 {
-            color: var(--primary);
-            margin-bottom: 15px;
-        }
+      .menu-toggle {
+        display: block;
+      }
 
-        .skill-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
+      header {
+        padding-top: 80px;
+      }
+    }
 
-        .skill-tag {
-            background: rgba(46, 204, 113, 0.1);
-            padding: 5px 15px;
-            border-radius: 15px;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-        }
+    header {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
 
-        .skill-tag:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(46, 204, 113, 0.2);
-        }
+    .content {
+      z-index: 2;
+    }
 
-        /* Experience Section */
-        .experience-section {
-            padding: var(--section-padding);
-        }
+    h1 {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      color: var(--primary);
+    }
 
-        .timeline {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-        }
+    .typewriter {
+      font-size: 1.5rem;
+      margin-bottom: 30px;
+      min-height: 2em;
+    }
 
-        .timeline-item {
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
-            margin-bottom: 30px;
-            position: relative;
-            border-left: 3px solid var(--primary);
-        }
+    .skills-section,
+    .experience-section,
+    .projects-section {
+      padding: var(--section-padding);
+    }
 
-        .timeline-item h3 {
-            color: var(--primary);
-            margin-bottom: 10px;
-        }
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+      color: var(--primary);
+    }
 
-        .timeline-item .date {
-            color: var(--accent);
-            font-size: 0.9rem;
-            margin-bottom: 10px;
-        }
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
 
-        /* Projects Section */
-        .projects-section {
-            padding: var(--section-padding);
-            background: rgba(255, 255, 255, 0.02);
-        }
+    .skill-category {
+      background: rgba(46, 204, 113, 0.05);
+      padding: 20px;
+      border-radius: 10px;
+      border: 1px solid var(--primary);
+    }
 
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
+    .skill-category h3 {
+      color: var(--primary);
+      margin-bottom: 15px;
+    }
 
-        .project-card {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
-            padding: 25px;
-            transition: all 0.3s ease;
-        }
+    .skill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
 
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(46, 204, 113, 0.2);
-        }
+    .skill-tag {
+      background: rgba(46, 204, 113, 0.1);
+      padding: 5px 15px;
+      border-radius: 15px;
+      font-size: 0.9rem;
+    }
 
-        .project-card h3 {
-            color: var(--primary);
-            margin-bottom: 15px;
-        }
+    .experience-section .timeline {
+      max-width: 800px;
+      margin: 0 auto;
+    }
 
-        .project-card .tech-stack {
-            margin-top: 15px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
+    .timeline-item {
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      margin-bottom: 30px;
+      border-left: 3px solid var(--primary);
+    }
 
-        .tech-tag {
-            background: rgba(46, 204, 113, 0.1);
-            padding: 3px 10px;
-            border-radius: 12px;
-            font-size: 0.8rem;
-        }
+    .timeline-item h3 {
+      color: var(--primary);
+    }
 
-        /* Contact Section */
-        .contact-section {
-            padding: var(--section-padding);
-            text-align: center;
-        }
+    .timeline-item .date {
+      color: var(--accent);
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+    }
 
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 30px;
-        }
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
 
-        .contact-link {
-            color: var(--light);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 10px 20px;
-            border-radius: 8px;
-            background: rgba(46, 204, 113, 0.1);
-            transition: all 0.3s ease;
-        }
+    .project-card {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 20px;
+      border-radius: 10px;
+      border: 1px solid var(--accent);
+    }
 
-        .contact-link:hover {
-            background: rgba(46, 204, 113, 0.2);
-            transform: translateY(-3px);
-        }
+    .project-card h4 {
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2.5rem;
-            }
-            .typewriter {
-                font-size: 1.2rem;
-            }
-            .section-title {
-                font-size: 2rem;
-            }
-            .contact-links {
-                flex-direction: column;
-                align-items: center;
-            }
-        }
-    </style>
+    footer {
+      text-align: center;
+      padding: 30px 0;
+      background: rgba(255, 255, 255, 0.03);
+      font-size: 0.9rem;
+    }
+  </style>
 </head>
 <body>
-    <canvas id="matrix" class="matrix-bg"></canvas>
-    
-    <!-- Hero Section -->
-    <header>
-        <div class="content">
-            <h1>Manideep Chilukuri</h1>
-            <div class="typewriter" id="typewriter"></div>
-            <p class="intro">WELCOME TO MY PORTFOLIO
-            </p>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <div class="logo">MyPortfolio</div>
+      <div class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header id="home">
+    <div class="container content">
+      <h1>Hello, I'm Jane Doe</h1>
+      <div class="typewriter" id="typewriter"></div>
+    </div>
+  </header>
+
+  <!-- Skills Section -->
+  <section id="skills" class="skills-section">
+    <div class="container">
+      <h2 class="section-title">Skills</h2>
+      <div class="skills">
+        <div class="skill-category">
+          <h3>Frontend</h3>
+          <div class="skill-list">
+            <span class="skill-tag">HTML</span>
+            <span class="skill-tag">CSS</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">React</span>
+          </div>
         </div>
-    </header>
-
-    <!-- Skills Section -->
-    <section class="skills-section" id="skills">
-        <div class="container">
-            <h2 class="section-title">Skills & Expertise</h2>
-            <div class="skills">
-                <div class="skill-category">
-                    <h3>Frontend Development</h3>
-                    <div class="skill-list">
-                        <span class="skill-tag">React</span>
-                        <span class="skill-tag">Html</span>
-                        <span class="skill-tag">JavaScript</span>
-                        <span class="skill-tag">CSS</span>
-                        <span class="skill-tag">Php</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3>Backend Development</h3>
-                    <div class="skill-list">
-                        <span class="skill-tag">Node.js</span>
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">Firebase</span>
-                        <span class="skill-tag">MongoDB</span>
-                        <span class="skill-tag">PostgreSQL</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3>Android Application Developement</h3>
-                    <div class="skill-list">
-                        <span class="skill-tag">Xml</span>
-                        <span class="skill-tag">Java</span>
-                        <span class="skill-tag">Firebase</span>
-                        <span class="skill-tag">SQL</span>
-                    </div>
-                </div>
-            </div>
+        <div class="skill-category">
+          <h3>Backend</h3>
+          <div class="skill-list">
+            <span class="skill-tag">Node.js</span>
+            <span class="skill-tag">Express</span>
+            <span class="skill-tag">MongoDB</span>
+            <span class="skill-tag">Firebase</span>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Experience Section -->
-    <section class="experience-section" id="experience">
-        <div class="container">
-            <h2 class="section-title">Experience</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <h3>Intern</h3>
-                    <div class="date">June 2024-September 2024 </div>
-                    <p>Led development of E-Commerce website and an cromachatbot</p>
-                </div>
-    </section>
+  <!-- Experience Section -->
+  <section id="experience" class="experience-section">
+    <div class="container">
+      <h2 class="section-title">Experience</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <h3>Frontend Developer</h3>
+          <div class="date">Jan 2022 - Present</div>
+          <p>Developed responsive websites and SPAs using React and Tailwind.</p>
+        </div>
+        <div class="timeline-item">
+          <h3>Intern at Tech Corp</h3>
+          <div class="date">Jul 2021 - Dec 2021</div>
+          <p>Built internal tools using HTML/CSS/JS and improved UI consistency.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- Projects Section -->
-    <section class="projects-section" id="projects">
-        <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
-            <div class="project-grid">
-                <div class="project-card">
-                    <h3>E-Commerce Platform</h3>
-                    <p>A e-commerce website with all the basic functions like add to cart wishlist and recent products.</p>
-                    <div class="tech-stack">
-                        <span class="tech-tag">Html</span>
-                        <span class="tech-tag">css</span>
-                        <span class="tech-tag">JavaScript</span>
-                        <span class="tech-tag">React</span>
-                        <span class="tech-tag">Typescript</span>
-                        
-                    </div>
-                </div>
-                <div class="project-card">
-                    <h3>Women Saftey app</h3>
-                    <p>A women Saftey application which helps women to be safe during SOS time they can send locations to the pre added mobile numbers by them and call them .</p>
-                    <div class="tech-stack">
-                        <span class="tech-tag">Android Studio</span>
-                        <span class="tech-tag">Xml</span>
-                        <span class="tech-tag">Java</span>
-                        <span class="tech-tag">Firebase</span>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <h3>Heart Rate moniteriong app </h3>
-                    <p>Measures the heart rate using camera of the mobile and the user can call the emergency contact if any changes in the heartbeat by one click.</p>
-                    <div class="tech-stack">
-                        <span class="tech-tag">Tensorflow</span>
-                        <span class="tech-tag">Xml</span>
-                        <span class="tech-tag">Java</span>
-                        <span class="tech-tag">Firebase</span>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <h3>Online Payment Fraud Detection </h3>
-                    <p>Chesks the Previous dataset and detect weather the apyment is fraud or not fraud.</p>
-                    <div class="tech-stack">
-                        <span class="tech-tag">Tensorflow</span>
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">Machine Learning</span>
-                    </div>
-            </div>
-            <div class="project-card">
-                <h3>Survilence Bot </h3>
-                <p>Android controlled Bot used for security Purpose usnig Esp-32 and Raspberry-pi </p>
-                <div class="tech-stack">
-                    <span class="tech-tag">Python</span>
-                </div>
+  <!-- Projects Section -->
+  <section id="projects" class="projects-section">
+    <div class="container">
+      <h2 class="section-title">Projects</h2>
+      <div class="project-grid">
+        <div class="project-card">
+          <h4>Portfolio Website</h4>
+          <p>A fully responsive personal portfolio built with HTML, CSS, JS.</p>
         </div>
         <div class="project-card">
-            <h3>Agriculture Bot</h3>
-            <p>Helps for automatic moisture sensing and seed sowing and watering the crop.</p>
-            <div class="tech-stack">
-                <span class="tech-tag">C</span>
-            </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact-section" id="contact">
-        <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <p>I'm always interested in hearing about new projects and opportunities.</p>
-            <div class="contact-links">
-                <a href="https://github.com/manideep-19" class="contact-link" target="_blank">
-                    <i class="fab fa-github"></i>
-                    GitHub
-                </a>
-                <a href="https://linkedin.com/in/manideep-chilukuri-1a7952256" class="contact-link" target="_blank">
-                    <i class="fab fa-linkedin"></i>
-                    LinkedIn
-                </a>
-                <a href="manideepchilukuri1@gmail.com" class="contact-link">
-                    <i class="fas fa-envelope"></i>
-                    Email
-                </a>
-            </div>
+          <h4>Weather App</h4>
+          <p>Weather forecasting web app using OpenWeather API & JavaScript.</p>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <script>
-        // Matrix Background Effect
-        const canvas = document.getElementById('matrix');
-        const ctx = canvas.getContext('2d');
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Jane Doe. All rights reserved.</p>
+  </footer>
 
-        function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
+  <!-- JavaScript for Menu & Typewriter -->
+  <script>
+    function toggleMenu() {
+      document.getElementById("navLinks").classList.toggle("active");
+    }
 
-        resizeCanvas();
-        window.addEventListener('resize', resizeCanvas);
+    // Typewriter
+    const typewriter = document.getElementById("typewriter");
+    const texts = ["Frontend Developer", "UI/UX Designer", "Open Source Contributor"];
+    let index = 0, charIndex = 0;
 
-        const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%';
-        const fontSize = 14;
-        const columns = canvas.width / fontSize;
-        const drops = Array(Math.floor(columns)).fill(1);
+    function type() {
+      if (charIndex < texts[index].length) {
+        typewriter.textContent += texts[index].charAt(charIndex++);
+        setTimeout(type, 100);
+      } else {
+        setTimeout(erase, 1500);
+      }
+    }
 
-        function drawMatrix() {
-            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
+    function erase() {
+      if (charIndex > 0) {
+        typewriter.textContent = texts[index].substring(0, --charIndex);
+        setTimeout(erase, 50);
+      } else {
+        index = (index + 1) % texts.length;
+        setTimeout(type, 500);
+      }
+    }
 
-            ctx.fillStyle = '#2ecc71';
-            ctx.font = fontSize + 'px monospace';
+    document.addEventListener("DOMContentLoaded", () => {
+      setTimeout(type, 1000);
+    });
+  </script>
 
-            drops.forEach((drop, i) => {
-                const text = letters[Math.floor(Math.random() * letters.length)];
-                ctx.fillText(text, i * fontSize, drop * fontSize);
-
-                if (drop * fontSize > canvas.height && Math.random() > 0.975) {
-                    drops[i] = 0;
-                }
-                drops[i]++;
-            });
-        }
-
-        setInterval(drawMatrix, 30);
-
-        // Typewriter Effect
-        const typewriterElement = document.getElementById('typewriter');
-        const phrases = [
-            'Android app developer',
-            'Problem Solver',
-            'Tech Enthusiast',
-            'Open Source Contributor'
-        ];
-
-        let phraseIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-
-        function type() {
-            const currentPhrase = phrases[phraseIndex];
-            
-            if (isDeleting) {
-                typewriterElement.textContent = currentPhrase.substring(0, charIndex - 1);
-                charIndex--;
-            } else {
-                typewriterElement.textContent = currentPhrase.substring(0, charIndex + 1);
-                charIndex++;
-            }
-
-            if (!isDeleting && charIndex === currentPhrase.length) {
-                setTimeout(() => isDeleting = true, 1500);
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                phraseIndex = (phraseIndex + 1) % phrases.length;
-            }
-
-            const typingSpeed = isDeleting ? 100 : 200;
-            setTimeout(type, typingSpeed);
-        }
-
-        type();
-    </script>
 </body>
 </html>
