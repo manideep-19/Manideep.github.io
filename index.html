@@ -1,357 +1,431 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>My Portfolio</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
-  <style>
-    :root {
-      --primary: #2ecc71;
-      --dark: #1a1a1a;
-      --light: #f5f6fa;
-      --accent: #3498db;
-      --section-padding: 80px 0;
-    }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <style>
+        :root {
+            --primary: #2ecc71;
+            --dark: #1a1a1a;
+            --light: #f5f6fa;
+            --accent: #3498db;
+            --section-padding: 80px 0;
+        }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-    html {
-      scroll-behavior: smooth;
-    }
+        html {
+            scroll-behavior: smooth;
+        }
 
-    body {
-      background-color: var(--dark);
-      color: var(--light);
-      line-height: 1.6;
-    }
+        body {
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
+        }
 
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-    /* Navbar */
-    .navbar {
-      background-color: rgba(26, 26, 26, 0.95);
-      position: fixed;
-      width: 100%;
-      z-index: 1000;
-      padding: 15px 0;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
-    }
+        /* Header & Hero Section */
+        header {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
 
-    .nav-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+        .matrix-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
 
-    .logo {
-      color: var(--primary);
-      font-weight: bold;
-      font-size: 1.5rem;
-    }
+        .content {
+            position: relative;
+            z-index: 2;
+        }
 
-    .nav-links {
-      list-style: none;
-      display: flex;
-      gap: 30px;
-    }
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
 
-    .nav-links li a {
-      color: var(--light);
-      text-decoration: none;
-      font-size: 1rem;
-      transition: color 0.3s ease;
-    }
+        .typewriter {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            min-height: 2em;
+        }
 
-    .nav-links li a:hover {
-      color: var(--primary);
-    }
+        /* Skills Section */
+        .skills-section {
+            padding: var(--section-padding);
+            background: rgba(255, 255, 255, 0.02);
+        }
 
-    .menu-toggle {
-      display: none;
-      font-size: 1.5rem;
-      color: var(--light);
-      cursor: pointer;
-    }
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: var(--primary);
+        }
 
-    @media (max-width: 768px) {
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
-        right: 20px;
-        background: var(--dark);
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-      }
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
 
-      .nav-links.active {
-        display: flex;
-      }
+        .skill-category {
+            background: rgba(46, 204, 113, 0.05);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid var(--primary);
+        }
 
-      .menu-toggle {
-        display: block;
-      }
+        .skill-category h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
 
-      header {
-        padding-top: 80px;
-      }
-    }
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
 
-    header {
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-    }
+        .skill-tag {
+            background: rgba(46, 204, 113, 0.1);
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
 
-    .content {
-      z-index: 2;
-    }
+        .skill-tag:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(46, 204, 113, 0.2);
+        }
 
-    h1 {
-      font-size: 3.5rem;
-      margin-bottom: 20px;
-      color: var(--primary);
-    }
+        /* Experience Section */
+        .experience-section {
+            padding: var(--section-padding);
+        }
 
-    .typewriter {
-      font-size: 1.5rem;
-      margin-bottom: 30px;
-      min-height: 2em;
-    }
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
 
-    .skills-section,
-    .experience-section,
-    .projects-section {
-      padding: var(--section-padding);
-    }
+        .timeline-item {
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            margin-bottom: 30px;
+            position: relative;
+            border-left: 3px solid var(--primary);
+        }
 
-    .section-title {
-      text-align: center;
-      font-size: 2.5rem;
-      margin-bottom: 40px;
-      color: var(--primary);
-    }
+        .timeline-item h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
 
-    .skills {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
-    }
+        .timeline-item .date {
+            color: var(--accent);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
 
-    .skill-category {
-      background: rgba(46, 204, 113, 0.05);
-      padding: 20px;
-      border-radius: 10px;
-      border: 1px solid var(--primary);
-    }
+        /* Projects Section */
+        .projects-section {
+            padding: var(--section-padding);
+            background: rgba(255, 255, 255, 0.02);
+        }
 
-    .skill-category h3 {
-      color: var(--primary);
-      margin-bottom: 15px;
-    }
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
 
-    .skill-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
+        .project-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 25px;
+            transition: all 0.3s ease;
+        }
 
-    .skill-tag {
-      background: rgba(46, 204, 113, 0.1);
-      padding: 5px 15px;
-      border-radius: 15px;
-      font-size: 0.9rem;
-    }
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(46, 204, 113, 0.2);
+        }
 
-    .experience-section .timeline {
-      max-width: 800px;
-      margin: 0 auto;
-    }
+        .project-card h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
 
-    .timeline-item {
-      padding: 20px;
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 10px;
-      margin-bottom: 30px;
-      border-left: 3px solid var(--primary);
-    }
+        .project-card .tech-stack {
+            margin-top: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
 
-    .timeline-item h3 {
-      color: var(--primary);
-    }
+        .tech-tag {
+            background: rgba(46, 204, 113, 0.1);
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+        }
 
-    .timeline-item .date {
-      color: var(--accent);
-      font-size: 0.9rem;
-      margin-bottom: 10px;
-    }
+        /* Contact Section */
+        .contact-section {
+            padding: var(--section-padding);
+            text-align: center;
+        }
 
-    .project-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-    }
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+        }
 
-    .project-card {
-      background: rgba(255, 255, 255, 0.05);
-      padding: 20px;
-      border-radius: 10px;
-      border: 1px solid var(--accent);
-    }
+        .contact-link {
+            color: var(--light);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 20px;
+            border-radius: 8px;
+            background: rgba(46, 204, 113, 0.1);
+            transition: all 0.3s ease;
+        }
 
-    .project-card h4 {
-      color: var(--accent);
-      margin-bottom: 10px;
-    }
+        .contact-link:hover {
+            background: rgba(46, 204, 113, 0.2);
+            transform: translateY(-3px);
+        }
 
-    footer {
-      text-align: center;
-      padding: 30px 0;
-      background: rgba(255, 255, 255, 0.03);
-      font-size: 0.9rem;
-    }
-  </style>
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            .typewriter {
+                font-size: 1.2rem;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
 </head>
 <body>
+    <canvas id="matrix" class="matrix-bg"></canvas>
 
-  <!-- Navigation -->
-  <nav class="navbar">
-    <div class="container nav-container">
-      <div class="logo">MyPortfolio</div>
-      <div class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#projects">Projects</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <!-- Hero Section -->
-  <header id="home">
-    <div class="container content">
-      <h1>Hello, I'm Jane Doe</h1>
-      <div class="typewriter" id="typewriter"></div>
-    </div>
-  </header>
-
-  <!-- Skills Section -->
-  <section id="skills" class="skills-section">
-    <div class="container">
-      <h2 class="section-title">Skills</h2>
-      <div class="skills">
-        <div class="skill-category">
-          <h3>Frontend</h3>
-          <div class="skill-list">
-            <span class="skill-tag">HTML</span>
-            <span class="skill-tag">CSS</span>
-            <span class="skill-tag">JavaScript</span>
-            <span class="skill-tag">React</span>
-          </div>
+    <!-- Hero Section -->
+    <header>
+        <div class="content">
+            <h1>Manideep Chilukuri</h1>
+            <div class="typewriter" id="typewriter"></div>
+            <p class="intro">WELCOME TO MY PORTFOLIO</p>
         </div>
-        <div class="skill-category">
-          <h3>Backend</h3>
-          <div class="skill-list">
-            <span class="skill-tag">Node.js</span>
-            <span class="skill-tag">Express</span>
-            <span class="skill-tag">MongoDB</span>
-            <span class="skill-tag">Firebase</span>
-          </div>
+    </header>
+
+    <!-- Skills Section -->
+    <section class="skills-section" id="skills">
+        <div class="container">
+            <h2 class="section-title">Skills & Expertise</h2>
+            <div class="skills">
+                <div class="skill-category">
+                    <h3>Programming Languages</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">C++</span>
+                        <span class="skill-tag">Java</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Web Development</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">HTML5</span>
+                        <span class="skill-tag">CSS3</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Tools & Platforms</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">AWS</span>
+                        <span class="skill-tag">Linux</span>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Experience Section -->
-  <section id="experience" class="experience-section">
-    <div class="container">
-      <h2 class="section-title">Experience</h2>
-      <div class="timeline">
-        <div class="timeline-item">
-          <h3>Frontend Developer</h3>
-          <div class="date">Jan 2022 - Present</div>
-          <p>Developed responsive websites and SPAs using React and Tailwind.</p>
+    <!-- Experience Section -->
+    <section class="experience-section" id="experience">
+        <div class="container">
+            <h2 class="section-title">Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>Software Engineer</h3>
+                    <div class="date">Jan 2022 - Present</div>
+                    <p>Working on full-stack web applications using React and Node.js, improving user experience and backend efficiency.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>Intern Developer</h3>
+                    <div class="date">Jun 2021 - Dec 2021</div>
+                    <p>Assisted in developing internal tools and performed testing and debugging of web applications.</p>
+                </div>
+            </div>
         </div>
-        <div class="timeline-item">
-          <h3>Intern at Tech Corp</h3>
-          <div class="date">Jul 2021 - Dec 2021</div>
-          <p>Built internal tools using HTML/CSS/JS and improved UI consistency.</p>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects-section" id="projects">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <h3>Portfolio Website</h3>
+                    <p>A responsive personal portfolio website built with HTML, CSS, and JavaScript.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">CSS</span>
+                        <span class="tech-tag">JavaScript</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3>Task Manager App</h3>
+                    <p>A React app to manage daily tasks with cloud sync and notifications.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Firebase</span>
+                        <span class="tech-tag">Node.js</span>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Projects Section -->
-  <section id="projects" class="projects-section">
-    <div class="container">
-      <h2 class="section-title">Projects</h2>
-      <div class="project-grid">
-        <div class="project-card">
-          <h4>Portfolio Website</h4>
-          <p>A fully responsive personal portfolio built with HTML, CSS, JS.</p>
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Me</h2>
+            <div class="contact-links">
+                <a href="mailto:manideep@example.com" class="contact-link"><i class="fas fa-envelope"></i>Email</a>
+                <a href="https://github.com/manideep" target="_blank" class="contact-link"><i class="fab fa-github"></i>GitHub</a>
+                <a href="https://linkedin.com/in/manideep" target="_blank" class="contact-link"><i class="fab fa-linkedin"></i>LinkedIn</a>
+            </div>
         </div>
-        <div class="project-card">
-          <h4>Weather App</h4>
-          <p>Weather forecasting web app using OpenWeather API & JavaScript.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Jane Doe. All rights reserved.</p>
-  </footer>
+    <!-- Scripts -->
 
-  <!-- JavaScript for Menu & Typewriter -->
-  <script>
-    function toggleMenu() {
-      document.getElementById("navLinks").classList.toggle("active");
-    }
+    <script>
+        // Matrix background animation
+        const canvas = document.getElementById('matrix');
+        const ctx = canvas.getContext('2d');
 
-    // Typewriter
-    const typewriter = document.getElementById("typewriter");
-    const texts = ["Frontend Developer", "UI/UX Designer", "Open Source Contributor"];
-    let index = 0, charIndex = 0;
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resizeCanvas();
 
-    function type() {
-      if (charIndex < texts[index].length) {
-        typewriter.textContent += texts[index].charAt(charIndex++);
-        setTimeout(type, 100);
-      } else {
-        setTimeout(erase, 1500);
-      }
-    }
+        window.addEventListener('resize', resizeCanvas);
 
-    function erase() {
-      if (charIndex > 0) {
-        typewriter.textContent = texts[index].substring(0, --charIndex);
-        setTimeout(erase, 50);
-      } else {
-        index = (index + 1) % texts.length;
-        setTimeout(type, 500);
-      }
-    }
+        const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()*&^%';
+        const lettersArray = letters.split('');
+        const fontSize = 16;
+        let columns = Math.floor(canvas.width / fontSize);
+        let drops = Array(columns).fill(1);
 
-    document.addEventListener("DOMContentLoaded", () => {
-      setTimeout(type, 1000);
-    });
-  </script>
+        function draw() {
+            ctx.fillStyle = 'rgba(26, 26, 26, 0.1)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
 
+            ctx.fillStyle = '#2ecc71'; // green text
+            ctx.font = fontSize + 'px monospace';
+
+            for (let i = 0; i < drops.length; i++) {
+                const text = lettersArray[Math.floor(Math.random() * lettersArray.length)];
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+
+        setInterval(draw, 50);
+
+        // Typewriter effect
+        const typewriterElement = document.getElementById('typewriter');
+        const words = ['Web Developer', 'UI/UX Designer', 'Open Source Enthusiast', 'Tech Blogger'];
+        let wordIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let delay = 200;
+
+        function type() {
+            const currentWord = words[wordIndex];
+            if (isDeleting) {
+                charIndex--;
+                typewriterElement.textContent = currentWord.substring(0, charIndex);
+                delay = 100;
+                if (charIndex === 0) {
+                    isDeleting = false;
+                    wordIndex = (wordIndex + 1) % words.length;
+                    delay = 500;
+                }
+            } else {
+                charIndex++;
+                typewriterElement.textContent = currentWord.substring(0, charIndex);
+                delay = 200;
+                if (charIndex === currentWord.length) {
+                    isDeleting = true;
+                    delay = 1500;
+                }
+            }
+            setTimeout(type, delay);
+        }
+
+        type();
+    </script>
 </body>
 </html>
