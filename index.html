@@ -516,55 +516,47 @@
         </div>
     </section>
 
-   <script>
+    <script>
     // Matrix Effect
     const canvas = document.getElementById('matrix-canvas');
-    const ctx = canvas.getContext('2d');
+    if (canvas) {
+        const ctx = canvas.getContext('2d');
+        function resizeMatrixCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resizeMatrixCanvas();
+        let letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%+-/~{[|`]}';
+        let lettersArray = letters.split('');
+        let fontSize = 10;
+        let columns = Math.floor(window.innerWidth / fontSize);
+        let drops = [];
+        // Init drops
+        for (let x = 0; x < columns; x++) drops[x] = 1;
 
-    // Set canvas size
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    // Matrix characters
-    const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%+-/~{[|`]}';
-    const lettersArray = letters.split('');
-
-    const fontSize = 10;
-    const columns = canvas.width / fontSize;
-
-    // Initialize drops array
-    const drops = [];
-    for (let x = 0; x < columns; x++) {
-        drops[x] = 1;
-    }
-
-    function drawMatrix() {
-        // Create trailing effect with semi-transparent black
-        ctx.fillStyle = 'rgba(0, 0, 0, 0.04)';
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-        // Set text properties
-        ctx.fillStyle = '#2ecc71';
-        ctx.font = fontSize + 'px monospace';
-
-        drops.forEach((drop, i) => {
-            const text = lettersArray[Math.floor(Math.random() * lettersArray.length)];
-            ctx.fillText(text, i * fontSize, drop * fontSize);
-
-            if (drop * fontSize > canvas.height && Math.random() > 0.975) {
-                drops[i] = 0;
+        function drawMatrix() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.04)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = '#2ecc71';
+            ctx.font = fontSize + 'px monospace';
+            for (let i = 0; i < drops.length; i++) {
+                let text = lettersArray[Math.floor(Math.random() * lettersArray.length)];
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
             }
-            drops[i]++;
+        }
+        setInterval(drawMatrix, 30);
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            resizeMatrixCanvas();
+            columns = Math.floor(window.innerWidth / fontSize);
+            drops = [];
+            for (let x = 0; x < columns; x++) drops[x] = 1;
         });
     }
-
-    setInterval(drawMatrix, 30);
-
-    // Handle window resize
-    window.addEventListener('resize', () => {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-    });
 
     // Typewriter Effect
     const typewriterElement = document.getElementById('typewriter');
@@ -582,7 +574,7 @@
 
     function type() {
         const currentPhrase = phrases[phraseIndex];
-        
+
         if (isDeleting) {
             typewriterElement.textContent = currentPhrase.substring(0, charIndex - 1);
             charIndex--;
@@ -603,7 +595,6 @@
     }
 
     type();
-</script>
-
+    </script>
 </body>
 </html>
