@@ -261,7 +261,8 @@
     </style>
 </head>
 <body>
-    <canvas id="matrix" class="matrix-bg"></canvas>
+<canvas id="matrix-canvas" class="matrix-bg"></canvas>
+
     
     <!-- Hero Section -->
     <header>
@@ -516,7 +517,8 @@
         </div>
     </section>
 
-    <script>
+  <script>
+document.addEventListener("DOMContentLoaded", function() {
     // Matrix Effect
     const canvas = document.getElementById('matrix-canvas');
     if (canvas) {
@@ -531,7 +533,6 @@
         let fontSize = 10;
         let columns = Math.floor(window.innerWidth / fontSize);
         let drops = [];
-        // Init drops
         for (let x = 0; x < columns; x++) drops[x] = 1;
 
         function drawMatrix() {
@@ -549,7 +550,6 @@
             }
         }
         setInterval(drawMatrix, 30);
-        // Handle window resize
         window.addEventListener('resize', () => {
             resizeMatrixCanvas();
             columns = Math.floor(window.innerWidth / fontSize);
@@ -589,12 +589,12 @@
             isDeleting = false;
             phraseIndex = (phraseIndex + 1) % phrases.length;
         }
-
         const typingSpeed = isDeleting ? 100 : 200;
         setTimeout(type, typingSpeed);
     }
-
     type();
-    </script>
+});
+</script>
+
 </body>
 </html>
